@@ -7,12 +7,13 @@
 
 import SwiftUI
 import AVFoundation
+import AuthenticationServices
 
 
 
 struct LoginList: View {
     
-
+    
     var playerItem: AVPlayerItem
     
     var player: AVQueuePlayer
@@ -46,61 +47,43 @@ struct LoginList: View {
                 Spacer()
                 
                 VStack(spacing: 20) {
-                    Button(action: {}) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .foregroundColor(.black)
-                                .frame(height: 48)
-                            
-                            HStack {
-                                Image(systemName: "applelogo")
-                                    .foregroundColor(.white)
-                                .font(.title)
-                                
-                                Text("Sign in with Apple")
-                                    .foregroundColor(.white)
-                                    .fontWeight(.bold)
-                            }
-                        }
-                    }
                     
-                    Button(action: {}) {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .foregroundColor(.black)
-                                .frame(height: 48)
-                            
-                            HStack {
-                                Image(systemName: "iphone.homebutton")
-                                    .foregroundColor(.white)
-                                .font(.title)
-                                
-                                Text("Sign in with Phone")
-                                    .foregroundColor(.white)
-                                    .fontWeight(.bold)
-                            }
+                    SignInWithAppleButton(
+                        .signIn,
+                        onRequest: { request in
+                            request.requestedScopes = [.fullName, .email]
+                        },
+                        onCompletion: { result in
+                            print(result)
                         }
-                    }
+                    )
+                    .frame(height: 35)
                     
+                    
+                    Button {
+                        invalidAttempts += 1
+                    } label: {
+                        Label("Sign in with Phone", systemImage: "iphone.homebutton")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.black)
                 }
                 .padding(.bottom, 20)
                 
                 footnote
                     .shakeEffect(shakes: invalidAttempts * 2)
-                    .animation(.linear, value: selected)
-                   
-                    
+                    .animation(.linear, value: invalidAttempts)
             }
             .navigationBarHidden(true)
             .padding(.horizontal)
             .background {
                 PlayerView(player: player)
                     .ignoresSafeArea(.all)
-                    .onAppear {
-                        player.play()
-                    }
             }
-           
+            .onAppear {
+                player.play()
+            }
         }
         
     }
@@ -109,7 +92,6 @@ struct LoginList: View {
         HStack(spacing: 0) {
             Button {
                 selected.toggle()
-                invalidAttempts += 1
             } label: {
                 Image(systemName: selected ? "checkmark.square" : "square")
                     .foregroundColor(selected ? .red : .gray)
