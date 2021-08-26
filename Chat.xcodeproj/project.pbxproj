@@ -24,6 +24,8 @@
 		266F631626D3942800C4E95A /* login.player.mov in Resources */ = {isa = PBXBuildFile; fileRef = 266F631526D3942800C4E95A /* login.player.mov */; };
 		267C38C726D4D60600D3E6B2 /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C38C626D4D60600D3E6B2 /* ShakeEffect.swift */; };
 		267C38C826D4D60600D3E6B2 /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C38C626D4D60600D3E6B2 /* ShakeEffect.swift */; };
+		2680919F26D65929004C4511 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680919E26D65929004C4511 /* PlayerViewModel.swift */; };
+		268091A026D65929004C4511 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680919E26D65929004C4511 /* PlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,7 @@
 		266F631126D3916500C4E95A /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		266F631526D3942800C4E95A /* login.player.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = login.player.mov; sourceTree = "<group>"; };
 		267C38C626D4D60600D3E6B2 /* ShakeEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeEffect.swift; sourceTree = "<group>"; };
+		2680919E26D65929004C4511 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,7 @@
 		265FA9A826D3831E00E74CB7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2680919E26D65929004C4511 /* PlayerViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +356,7 @@
 				265FA99126D3827600E74CB7 /* ChatApp.swift in Sources */,
 				266F631226D3916500C4E95A /* PlayerView.swift in Sources */,
 				265FA99326D3827600E74CB7 /* ContentView.swift in Sources */,
+				2680919F26D65929004C4511 /* PlayerViewModel.swift in Sources */,
 				267C38C726D4D60600D3E6B2 /* ShakeEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				265FA99026D3827600E74CB7 /* Chat.xcdatamodeld in Sources */,
+				268091A026D65929004C4511 /* PlayerViewModel.swift in Sources */,
 				267C38C826D4D60600D3E6B2 /* ShakeEffect.swift in Sources */,
 				265FA99226D3827600E74CB7 /* ChatApp.swift in Sources */,
 				265FA99426D3827600E74CB7 /* ContentView.swift in Sources */,

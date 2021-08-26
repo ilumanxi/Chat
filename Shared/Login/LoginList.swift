@@ -6,36 +6,14 @@
 //
 
 import SwiftUI
-import AVFoundation
+import AVKit
 import AuthenticationServices
 
 
 
 struct LoginList: View {
     
-    
-    var playerItem: AVPlayerItem
-    
-    var player: AVQueuePlayer
-    
-    var playerLooper: AVPlayerLooper
-    
-    
-    init() {
-        let playerItem: AVPlayerItem = .init(url: Bundle.main.url(forResource: "login.player", withExtension: "mov")!)
-        let player: AVQueuePlayer = AVQueuePlayer(url: Bundle.main.url(forResource: "login.player", withExtension: "mov")!)
-        
-        let playerLooper = AVPlayerLooper(player:  player, templateItem: playerItem)
-        
-        self.init(playerItem: playerItem, player: player, playerLooper: playerLooper)
-        
-    }
-    
-    private init(playerItem: AVPlayerItem, player: AVQueuePlayer, playerLooper: AVPlayerLooper) {
-        self.playerItem = playerItem
-        self.player = player
-        self.playerLooper = playerLooper
-    }
+    private var playerViewModel = PlayerViewModel(fileName: "login.player.mov")
     
     @State private var selected: Bool = false
     
@@ -78,11 +56,11 @@ struct LoginList: View {
             .navigationBarHidden(true)
             .padding(.horizontal)
             .background {
-                PlayerView(player: player)
+                PlayerView(player: playerViewModel.player)
                     .ignoresSafeArea(.all)
             }
             .onAppear {
-                player.play()
+                playerViewModel.play()
             }
         }
         

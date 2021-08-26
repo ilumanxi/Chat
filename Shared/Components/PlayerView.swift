@@ -3,7 +3,7 @@
 //  PlayerView
 //
 //  Created by 风起兮 on 2021/8/23.
-//
+//  VideoPlayer
 
 import SwiftUI
 import AVKit
@@ -13,13 +13,18 @@ struct PlayerView: View {
     var player: AVPlayer
     
     var body: some View {
-        Player(player: player)
+        Representable(player: player)
     }
-    
-    
-    struct Player: UIViewControllerRepresentable {
+}
+
+extension PlayerView {
+    struct Representable: UIViewControllerRepresentable {
         
         var player: AVPlayer
+        
+        func makeCoordinator() -> Coordinator {
+            Coordinator()
+        }
         
         func makeUIViewController(context: Context) -> AVPlayerViewController {
             let playerViewController = AVPlayerViewController()
@@ -30,7 +35,12 @@ struct PlayerView: View {
         
         func updateUIViewController(_ uiViewController: AVPlayerViewController, context: Context) {
             uiViewController.player = player
+            uiViewController.delegate = context.coordinator
         }
+    }
+    
+    class Coordinator: NSObject, AVPlayerViewControllerDelegate {
+        
     }
 }
 
