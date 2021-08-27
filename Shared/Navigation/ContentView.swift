@@ -12,7 +12,9 @@ struct ContentView: View {
 
 
     var body: some View {
-        LoginList()
+        NavigationView {
+            LoginList()
+        }
     }
 
 }
