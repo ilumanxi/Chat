@@ -8,25 +8,13 @@
 import Foundation
 import AVKit
 
-struct PlayerViewModel {
+class PlayerViewModel {
     
     var playerItem: AVPlayerItem
     
     var player: AVQueuePlayer
     
     var playerLooper: AVPlayerLooper
-    
-    
-    var isPlaying: Bool = false {
-        didSet {
-            if isPlaying {
-                player.play()
-            }
-            else {
-                player.pause()
-            }
-        }
-    }
     
     init(fileName: String) {
         
@@ -39,6 +27,10 @@ struct PlayerViewModel {
     
     func play(){
         player.play()
+    }
+    
+    func pause() {
+        player.pause()
     }
     
 }

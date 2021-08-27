@@ -9,15 +9,16 @@ import SwiftUI
 import AVKit
 import AuthenticationServices
 
-
-
 struct LoginList: View {
+    
+    @EnvironmentObject var model: Model
     
     private var playerViewModel = PlayerViewModel(fileName: "login.player.mov")
     
-    @State private var selected: Bool = false
+    @State private var agree: Bool = false
     
-    @State var invalidAttempts = 0
+    /// 现在，随着我们增加无效登录尝试的数量，矩形会抖动。
+    @State var invalidAttempts = 0 
     
     var body: some View {
         NavigationView {
@@ -25,35 +26,48 @@ struct LoginList: View {
                 Spacer()
                 
                 VStack(spacing: 20) {
-                    
-                    SignInWithAppleButton(
-                        .signIn,
-                        onRequest: { request in
-                            request.requestedScopes = [.fullName, .email]
-                        },
-                        onCompletion: { result in
-                            print(result)
+                    SignInWithAppleButton(.signIn, onRequest: { _ in }, onCompletion: model.authorizeUser)
+                        .frame(minWidth: 100, maxWidth: 400)
+                        .imageScale(.large)
+                        .padding(.horizontal, 20)
+                        .frame(height: 45)
+                        .disabled(!agree)
+                        .overlay {
+                            if !agree {
+                                Button(action: shake) {
+                                    RoundedRectangle(cornerRadius: 4)
+                                        .fill(.clear)
+                                }
+                            }
                         }
-                    )
-                    .frame(height: 35)
                     
+                    NavigationLink(destination: {
+                        MobilePhoneLogin()
+                            .navigationBarTitle("手机登录", displayMode: .inline)
+                    }, label: {
+                        
+                        //  https://onevcat.com/2021/03/swiftui-text-2/
+                        Text("\(Image(systemName: "iphone.homebutton")) Sign in with Phone")
+                            //  https://developer.apple.com/design/human-interface-guidelines/sign-in-with-apple/overview/buttons/
+                            .font(.system(size: 17))
+                            .fontWeight(.medium)
+                            .frame(maxWidth: .infinity, maxHeight: 45.0)
+                    })
                     
-                    Button {
-                        invalidAttempts += 1
-                    } label: {
-                        Label("Sign in with Phone", systemImage: "iphone.homebutton")
-                            .frame(maxWidth: .infinity)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.black)
+                        .frame(maxWidth: .infinity, maxHeight: 45.0)
+                        .padding(.horizontal, 20)
+                        .lineSpacing(2)
+                        .buttonStyle(.borderedProminent)
+                        .tint(.black)
                 }
-                .padding(.bottom, 20)
                 
-                footnote
+                Spacer()
+                    .frame(height: 60)
+                
+                Footnote(agree: $agree)
                     .shakeEffect(shakes: invalidAttempts * 2)
                     .animation(.linear, value: invalidAttempts)
             }
-            .navigationBarHidden(true)
             .padding(.horizontal)
             .background {
                 PlayerView(player: playerViewModel.player)
@@ -62,36 +76,21 @@ struct LoginList: View {
             .onAppear {
                 playerViewModel.play()
             }
+            .onDisappear {
+                playerViewModel.pause()
+            }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
         
     }
     
-    var footnote: some View {
-        HStack(spacing: 0) {
-            Button {
-                selected.toggle()
-            } label: {
-                Image(systemName: selected ? "checkmark.square" : "square")
-                    .foregroundColor(selected ? .red : .gray)
-            }
-            
-            Text("已阅读并同意”")
-            NavigationLink(destination: Text("用户协议")) {
-                Text("用户协议")
-                    .foregroundColor(.primary)
-            }
-            
-            Text("“和“")
-            NavigationLink(destination: Text("隐私政策")) {
-                Text("隐私政策")
-                    .foregroundColor(.primary)
-            }
-            Text("“")
-        }
-        .font(.footnote)
-        .foregroundColor(.secondary)
+    func shake() {
+        invalidAttempts += 1
     }
 }
+
+
 
 struct LoginList_Previews: PreviewProvider {
     static var previews: some View {

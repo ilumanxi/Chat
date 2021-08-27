@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2619FBC926D8BD3E005A552E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2619FBC826D8BD3E005A552E /* Model.swift */; };
+		2619FBCA26D8BD3E005A552E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2619FBC826D8BD3E005A552E /* Model.swift */; };
+		2619FBCC26D8C205005A552E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2619FBCB26D8C205005A552E /* Account.swift */; };
+		2619FBCD26D8C205005A552E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2619FBCB26D8C205005A552E /* Account.swift */; };
 		265FA98026D3827500E74CB7 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265FA97F26D3827500E74CB7 /* Tests_iOS.swift */; };
 		265FA98226D3827500E74CB7 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265FA98126D3827500E74CB7 /* Tests_iOSLaunchTests.swift */; };
 		265FA98C26D3827600E74CB7 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265FA98B26D3827600E74CB7 /* Tests_macOS.swift */; };
@@ -26,6 +30,9 @@
 		267C38C826D4D60600D3E6B2 /* ShakeEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267C38C626D4D60600D3E6B2 /* ShakeEffect.swift */; };
 		2680919F26D65929004C4511 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680919E26D65929004C4511 /* PlayerViewModel.swift */; };
 		268091A026D65929004C4511 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680919E26D65929004C4511 /* PlayerViewModel.swift */; };
+		26C390DB26D89A1E003C3A63 /* MobilePhoneLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C390DA26D89A1E003C3A63 /* MobilePhoneLogin.swift */; };
+		26C390DD26D8A4D5003C3A63 /* Footnote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C390DC26D8A4D5003C3A63 /* Footnote.swift */; };
+		26C390DE26D8A4D5003C3A63 /* Footnote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C390DC26D8A4D5003C3A63 /* Footnote.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2619FBC826D8BD3E005A552E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2619FBCB26D8C205005A552E /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		265FA96726D3827400E74CB7 /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		265FA96826D3827400E74CB7 /* ChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatApp.swift; sourceTree = "<group>"; };
 		265FA96926D3827400E74CB7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +72,8 @@
 		266F631526D3942800C4E95A /* login.player.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = login.player.mov; sourceTree = "<group>"; };
 		267C38C626D4D60600D3E6B2 /* ShakeEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeEffect.swift; sourceTree = "<group>"; };
 		2680919E26D65929004C4511 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
+		26C390DA26D89A1E003C3A63 /* MobilePhoneLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneLogin.swift; sourceTree = "<group>"; };
+		26C390DC26D8A4D5003C3A63 /* Footnote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Footnote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				2680919E26D65929004C4511 /* PlayerViewModel.swift */,
+				2619FBC826D8BD3E005A552E /* Model.swift */,
+				2619FBCB26D8C205005A552E /* Account.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				265FA9AA26D3838900E74CB7 /* LoginList.swift */,
+				26C390DA26D89A1E003C3A63 /* MobilePhoneLogin.swift */,
+				26C390DC26D8A4D5003C3A63 /* Footnote.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -352,9 +367,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				265FA98F26D3827600E74CB7 /* Chat.xcdatamodeld in Sources */,
+				2619FBCC26D8C205005A552E /* Account.swift in Sources */,
 				265FA9AB26D3838900E74CB7 /* LoginList.swift in Sources */,
+				26C390DD26D8A4D5003C3A63 /* Footnote.swift in Sources */,
 				265FA99126D3827600E74CB7 /* ChatApp.swift in Sources */,
 				266F631226D3916500C4E95A /* PlayerView.swift in Sources */,
+				2619FBC926D8BD3E005A552E /* Model.swift in Sources */,
+				26C390DB26D89A1E003C3A63 /* MobilePhoneLogin.swift in Sources */,
 				265FA99326D3827600E74CB7 /* ContentView.swift in Sources */,
 				2680919F26D65929004C4511 /* PlayerViewModel.swift in Sources */,
 				267C38C726D4D60600D3E6B2 /* ShakeEffect.swift in Sources */,
@@ -365,11 +384,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2619FBCA26D8BD3E005A552E /* Model.swift in Sources */,
 				265FA99026D3827600E74CB7 /* Chat.xcdatamodeld in Sources */,
 				268091A026D65929004C4511 /* PlayerViewModel.swift in Sources */,
 				267C38C826D4D60600D3E6B2 /* ShakeEffect.swift in Sources */,
 				265FA99226D3827600E74CB7 /* ChatApp.swift in Sources */,
+				2619FBCD26D8C205005A552E /* Account.swift in Sources */,
 				265FA99426D3827600E74CB7 /* ContentView.swift in Sources */,
+				26C390DE26D8A4D5003C3A63 /* Footnote.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +551,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TJ99XNWKL5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -542,7 +565,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wind.Chat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.friday.Chat;
 				PRODUCT_NAME = Chat;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -558,6 +581,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TJ99XNWKL5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -571,7 +595,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wind.Chat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.friday.Chat;
 				PRODUCT_NAME = Chat;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -600,7 +624,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wind.Chat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.friday.Chat;
 				PRODUCT_NAME = Chat;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -627,7 +651,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wind.Chat;
+				PRODUCT_BUNDLE_IDENTIFIER = com.friday.Chat;
 				PRODUCT_NAME = Chat;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

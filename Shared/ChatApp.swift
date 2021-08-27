@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct ChatApp: App {
+    
+    @StateObject var model = Model()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(model)
         }
     }
 }
