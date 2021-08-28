@@ -34,6 +34,7 @@ struct Footnote: View {
             Text("“")
         }
         .font(.footnote)
+//        .buttonStyle(.plain)
         .foregroundColor(.secondary)
     }
 }
