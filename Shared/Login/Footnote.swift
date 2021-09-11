@@ -9,16 +9,16 @@ import SwiftUI
 
 struct Footnote: View {
     
-    @Binding var agree: Bool
+    @Binding var isSelected: Bool
     
     var body: some View {
         HStack(spacing: 0) {
-            Button {
-                agree.toggle()
-            } label: {
-                Image(systemName: agree ? "checkmark.square" : "square")
-                    .foregroundColor(agree ? .red : .gray)
+            Toggle(isOn: $isSelected) {
+                Text(isSelected ? "selected" : "unselected")
             }
+            .foregroundColor(isSelected ? .red : .gray)
+            .toggleStyle(CheckboxToggleStyle.checkbox)
+            .labelsHidden()
             
             Text("已阅读并同意”")
             NavigationLink(destination: Text("用户协议")) {
@@ -34,13 +34,12 @@ struct Footnote: View {
             Text("“")
         }
         .font(.footnote)
-//        .buttonStyle(.plain)
         .foregroundColor(.secondary)
     }
 }
 
 struct Footnote_Previews: PreviewProvider {
     static var previews: some View {
-        Footnote(agree: .constant(true))
+        Footnote(isSelected: .constant(true))
     }
 }

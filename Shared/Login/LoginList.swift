@@ -13,16 +13,12 @@ struct LoginList: View {
     
     @EnvironmentObject var model: Model
     
-    @State private var playerViewModel = PlayerViewModel(fileName: "login.player.mov")
+    @State private var playerViewModel = PlayerViewModel(fileName: "login.player.mov", isLoop: true)
     
-    #if DEBUG
-    @State private var agree: Bool = true
-    #else
-    @State private var agree: Bool = false
-    #endif
+    @State private var isSelected: Bool = false
     
     /// 现在，随着我们增加无效登录尝试的数量，矩形会抖动。
-    @State var invalidAttempts = 0
+    @State private var invalidAttempts = 0
     
     var body: some View {
         GeometryReader { proxy in
@@ -30,6 +26,8 @@ struct LoginList: View {
                 PlayerView(player: playerViewModel.player)
                     .ignoresSafeArea(.all)
                     .onAppear {
+                        playerViewModel.player.isMuted  = true
+                        playerViewModel.allowResumePlay()
                         playerViewModel.play()
                     }
                     .onDisappear {
@@ -45,9 +43,9 @@ struct LoginList: View {
                             .imageScale(.large)
                             .padding(.horizontal, 20)
                             .frame(height: 45)
-                            .disabled(!agree)
+                            .disabled(!isSelected)
                             .overlay {
-                                if !agree {
+                                if !isSelected {
                                     Button(action: shake) {
                                         RoundedRectangle(cornerRadius: 4)
                                             .fill(.clear)
@@ -65,17 +63,16 @@ struct LoginList: View {
                         }
                         .frame(maxWidth: .infinity, maxHeight: 45.0)
                         .padding(.horizontal, 20)
-                        .lineSpacing(2)
                         .buttonStyle(.borderedProminent)
                         .tint(.black)
                         
                     }
                     
-                    Footnote(agree: $agree)
+                    Footnote(isSelected: $isSelected)
                         .shakeEffect(shakes: invalidAttempts * 2)
                         .animation(.linear, value: invalidAttempts)
                         .padding(.top, 60)
-                        .padding(.bottom, proxy.safeAreaInsets.bottom == 0 ? 10 : 0)
+                        .padding(.bottom, proxy.safeAreaInsets.bottom == 0 ? 20 : 0)
                 }
                 .padding(.horizontal)
             }
